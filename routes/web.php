@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\AuthGates;
 
 
 Route::get('/', function () {
@@ -16,5 +17,11 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+});
+
+
+Route::group(['middleware' => 'auth'], function () {
+
     Route::resource('users', UserController::class);
 });
