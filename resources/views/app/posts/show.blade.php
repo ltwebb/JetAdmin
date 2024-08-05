@@ -26,15 +26,13 @@
                                     <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                        Images
                                     </th>
-                                    @foreach ($post->images as $image)
 
-
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $image->id }}
+                                    <td class="flex justify-between gap-4">
+                                        @foreach ($post->media as $image)
+                                        <img class="object-cover w-1/3" src="{{  $image->getUrl() }}" alt="{{ $post->title }}" />
+                                        @endforeach
                                     </td>
-                                    @endforeach
-                                </tr>
-
+                                 </tr>
                             </table>
                         </div>
                     </div>

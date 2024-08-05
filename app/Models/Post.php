@@ -22,8 +22,7 @@ class Post extends Model implements HasMedia
 {
     $this
         ->addMediaConversion('thumbnail')
-        //->fit(Fit::Contain, 300, 300)
-        ->fit(Manipulations::FIT_FILL, 200, 200)
+       ->fit(Fit::Contain, 300, 300)
         ->nonQueued();
 }
 

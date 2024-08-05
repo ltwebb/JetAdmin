@@ -13,7 +13,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['media'])->paginate(10);
+        $posts = Post::all();
 
         return view('app.posts.index', compact('posts'));
     }
@@ -33,7 +33,7 @@ class PostController extends Controller
     {
        $post = Post::create($request->validated());
 
-       if ($request->hasFile('images')) {
+        if ($request->hasFile('images')) {
         foreach ($request->file('images', []) as $image) {
             $post->addMedia($image)->toMediaCollection();
         }
@@ -47,7 +47,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return route('posts.show', $post);
+        return view('app.posts.show', compact('post'));
     }
 
     /**
@@ -55,7 +55,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('app.posts.edit', $post);
+        return view('app.posts.edit', compact('post'));
     }
 
     /**
@@ -65,6 +65,13 @@ class PostController extends Controller
     {
         $post->update($request->validated());
 
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images', []) as $image) {
+                $post->clearMediaCollection();
+                $post->addMedia($image)->toMediaCollection();
+            }
+        }
+
         return redirect()->route('posts.index');
     }
 
@@ -73,6 +80,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        $post->clearMediaCollection();
+
+        return redirect()->route('posts.index');
     }
 }
