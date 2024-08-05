@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AuthGates;
+use Illuminate\Support\Facades\Route;
+
 
 
 Route::get('/', function () {
@@ -17,7 +19,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-
+Route::resource('posts', PostController::class);
 });
 
 

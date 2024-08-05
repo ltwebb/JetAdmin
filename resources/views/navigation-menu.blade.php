@@ -22,6 +22,9 @@
                     </x-nav-link>
                     @endcan
 
+                    <x-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.*')">
+                        {{ __('Post') }}
+                    </x-nav-link>
 
 
 
