@@ -6,7 +6,7 @@
         <!-- Mobile Menu Toggle -->
        <x-app.admin.top-bar.mobile-menu-toggle />
         <!-- Search input -->
-        <x-app.admin.top-bar.site-search-input />
+        <livewire:search-bar />
         <!--Settings-Theme-Notification-Block-->
         <ul class="flex items-center flex-shrink-0 space-x-2 lg:space-x-6">
             <!-- Darkmode Toggle -->
