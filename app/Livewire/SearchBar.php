@@ -13,7 +13,7 @@ class SearchBar extends Component
 
     public function render()
     {
-
+        //add additional models as needed for the full website search && update the blade component
         $results = [
             'users' => collect(),
             'posts' => collect()
