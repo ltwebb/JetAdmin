@@ -81,7 +81,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        $post->clearMediaCollection();
+       // $post->clearMediaCollection();
 
         return redirect()->route('posts.index');
     }
