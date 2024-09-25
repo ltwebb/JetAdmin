@@ -10,7 +10,7 @@ It uses [Laravel Jetstream](https://jetstream.laravel.com/introduction.html) and
 - Copy `.env.example` file to `.env` and add your database environment variables.
 - Run `composer install`
 - Run `php artisan key:generate`
-- Run `php artisan migrate --seed` (optional, but it does include minimal data for users)
+- Run `php artisan migrate --seed` 
 - Run `npm install && npm run dev`
 - Launch app and login using credentials in User Seeder file.
 
