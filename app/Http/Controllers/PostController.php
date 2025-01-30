@@ -67,7 +67,9 @@ class PostController extends Controller
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images', []) as $image) {
-                $post->clearMediaCollection();
+              // below removes all images when adding images
+              //  $post->clearMediaCollection();
+
                 $post->addMedia($image)->toMediaCollection();
             }
         }
