@@ -81,8 +81,18 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-       // $post->clearMediaCollection();
 
         return redirect()->route('posts.index');
+    }
+
+    /**
+     * Remove the media from model on update.
+     */
+    public function destroyMedia(Post $post, $mediaId)
+    {
+        $media = $post->media()->findOrFail($mediaId);
+        $media->delete();
+
+        return redirect()->back()->with('success', 'Image deleted!');
     }
 }

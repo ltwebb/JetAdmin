@@ -41,8 +41,8 @@
                                         <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
                                          @foreach ($posts as $post )
                                            <tr>
-                                                <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                                    <a href="{{ route('posts.show', $post) }}" class="underline hover:text-gray-400">
+                                                <td class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                                                    <a href="{{ route('posts.show', $post) }}" class="underline hover:text-gray-400 ">
                                                                {{ $post->title }} </a>
                                                 </td>
                                                 <td class="px-12 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
