@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -67,8 +69,6 @@ class PostController extends Controller
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images', []) as $image) {
-              // below removes all images when adding images
-              //  $post->clearMediaCollection();
 
                 $post->addMedia($image)->toMediaCollection();
             }
@@ -97,4 +97,6 @@ class PostController extends Controller
 
         return redirect()->back()->with('success', 'Image deleted!');
     }
+
+
 }

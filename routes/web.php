@@ -19,6 +19,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+
 Route::resource('posts', PostController::class);
 Route::delete('posts/{post}/media/{media}', [PostController::class, 'destroyMedia'])->name('posts.media.destroy');
 

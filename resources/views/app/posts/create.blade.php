@@ -13,16 +13,18 @@
                 <form method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="bg-white shadow overflow-hidden sm:rounded-md">
+                    <div  class="bg-white shadow overflow-hidden sm:rounded-md">
                         <div class="flex flex-row justify-between">
                         <div class="w-1/2 px-4 py-5 sm:p-6">
                             <x-label for="title" class="block font-medium text-sm text-gray-700">Title</x-label>
-                            <x-input type="text" name="title" id="title" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                            <x-input  type="text" name="title" id="title" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('title') }}" />
                             @error('title')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
+
+
 
                         <div class="w-1/2 px-4 py-5 bg-white sm:p-6">
                             <x-label for="images" class="block font-medium text-sm text-gray-700">Images</x-label>
@@ -32,6 +34,7 @@
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
+                    </div>
                     </div>
 
 
@@ -45,4 +48,6 @@
             </div>
         </div>
     </div>
+
+
 </x-admin-layout>
